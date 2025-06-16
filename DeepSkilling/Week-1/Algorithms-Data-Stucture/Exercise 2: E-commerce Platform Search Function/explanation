@@ -1,1 +1,5 @@
+Big O Notation: Big O notation is a mathematical concept used in computer science to: Describe the performance or complexity of an algorithm Focus on how the algorithm behaves as the input size (n) increases Express the upper bound of time or space an algorithm may take Imporatance:It's especially useful when choosing the right data structure or algorithm for large datasets.
 
+Time Complexity Linear search : Linear search has a time complexity of O(n), meaning it checks each element one by one until it finds the target Binary search :binary search operates with a time complexity of O(log n)
+
+EffectiveNess:binary search is more suitable, provided the product list is maintained in sorted order. Its logarithmic time performance ensures that even very large datasets can be searched quickly, improving the overall user experience.
