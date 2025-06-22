@@ -1,0 +1,11 @@
+declare 
+customer_name customers.name%type;
+begin
+for detail in (select loanid,enddate,customerid,loanamount from loans where enddate between sysdate and sysdate+30) 
+loop
+select name into customer_name from customers where customerid=detail.customerid;
+
+dbms_output.put_line('Remainder'||customer_name||'Your loan of'||detail.loanamount||'is due on'||to_char(detail.enddate,'dd-mon-yyyy')||'please pay it Soon');
+end loop;
+end;
+/

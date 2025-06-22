@@ -1,0 +1,33 @@
+create or replace procedure transferMoney(
+fromAcc_id in number
+,toAcc_id in number
+,transferAmount in number
+)is
+balance_toAcc accounts.balance%type;
+begin
+select balance into balance_toAcc from accounts where accountid=fromAcc_id for update;
+if balance_toAcc>transferAmount then
+update accounts 
+set balance=balance+transferAmount 
+where accountid=toAcc_id;
+
+update accounts
+set balance=balance-transferAmount 
+where accountid=fromAcc_id;
+
+dbms_output.put_line('The Amount of'||transferAmount||' is transfered from Account'||fromAcc_id||'to'||toAcc_id);
+else
+dbms_output.put_line('Insufficient Balance in '||fromAcc_id);
+end if;
+exception
+when no_data_found then
+dbms_output.put_line('Data entered is in correct');
+when others then
+dbms_output.put_line('Error with your input');
+rollback;
+commit;
+end;
+/
+exec transferMoney(1,4,3000);
+exec transferMoney(2,6,500);
+

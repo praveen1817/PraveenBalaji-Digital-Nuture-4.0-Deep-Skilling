@@ -1,0 +1,16 @@
+declare
+customer_name customers.name%type;
+begin
+for detail in(select customerid,name,balance from customers) 
+loop
+if detail.balance>10000 then
+customer_name:=detail.name;
+update customers set IsVip='True' where customerid=detail.customerid;
+dbms_output.put_line('The Vip Customers are:');
+dbms_output.put_line(customer_name);
+else
+update customers set IsVip='False' where customerid=detail.customerid;
+end if;
+end loop;
+end;
+/

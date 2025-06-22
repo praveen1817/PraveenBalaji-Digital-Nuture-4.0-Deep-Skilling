@@ -1,0 +1,23 @@
+create  or replace procedure updateSalary(dept_name in varchar,bonus_per in number)
+is
+updated_salary employees.salary%type;
+begin
+for emp in (select name,employeeid,salary from employees where department = dept_name)
+loop
+updated_salary:=emp.salary+(emp.salary*bonus_per/100);
+update employees
+set salary = updated_salary
+where employeeid = emp.employeeid and
+department = dept_name;
+dbms_output.put_line('Hello '||emp.name||'of'||emp.employeeid||'Salary was updated to'||updated_salary);
+end loop;
+exception
+when no_data_found then
+dbms_output.put_line('Data entered is in correct');
+when others then
+dbms_output.put_line('Error with your input');
+end;
+/
+exec updatesalary('IT',20);
+exec updatesalary('HR',20);
+

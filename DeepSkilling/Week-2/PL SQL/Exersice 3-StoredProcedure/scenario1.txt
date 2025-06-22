@@ -1,0 +1,16 @@
+create or replace procedure processMonthlyIntrest is
+customer_id customers.customerid%type;
+processed_fee customers.balance%type;
+processed_date accounts.lastmodified%type;
+begin
+for custm in (select c.customerid,a.accountid,a.balance,a.lastmodified from customers c join accounts a on c.customerid=a.customerid where a.accounttype='savings')
+loop
+customer_id:=custm.customerid;
+processed_fee:=custm.balance+(custm.balance*0.1);
+processed_date:=sysdate;
+update accounts set balance = processed_fee,lastmodified =processed_date  where accountid=custm.accountid;
+dbms_output.put_line(customer_id||'The amount of '||processed_fee||'is processed from your savings Account'||processed_date);
+end loop;
+end;
+/
+exec processMonthlyIntrest;

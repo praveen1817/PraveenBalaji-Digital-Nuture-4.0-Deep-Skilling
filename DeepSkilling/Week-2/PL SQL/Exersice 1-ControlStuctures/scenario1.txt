@@ -1,0 +1,18 @@
+
+declare
+customer_name customers.name%type;
+begin
+for detail in (select c.customerid,c.name,c.dob,l.loanid,l.interestrate from customers c join loans l on c.customerid =l.customerid)
+loop
+if months_between(sysdate,detail.dob)/12>30 then
+update loans set interestrate =interestrate+1 where loanid =detail.loanid;
+customer_name:=detail.name;
+dbms_output.put_line(' Updated Customers '||customer_name);
+
+end if;
+end loop;
+commit;
+end;
+/
+
+
