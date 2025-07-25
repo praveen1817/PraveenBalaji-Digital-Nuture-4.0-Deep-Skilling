@@ -1,0 +1,45 @@
+.formatstyle {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 40px auto;
+  width: 500px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.formatstyle h1 {
+  color: #5a3d0c;
+  text-align: center;
+}
+
+.formatstyle div {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.formatstyle span {
+  margin-left: 10px;
+}
+
+.Name {
+    font-weight: 300;
+    color: rgb(98, 14, 162);
+}
+
+.School {
+    color: rgb(20, 3, 57);
+}
+
+.Total {
+    color: rgb(39, 8, 134);
+}
+
+.formatstyle {
+    text-align: center;
+    font-size: large;
+}
+
+.Score {
+    color: rgb(25, 244, 25);
+}
