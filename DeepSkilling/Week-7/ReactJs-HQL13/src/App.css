@@ -1,0 +1,61 @@
+/* index.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;  
+  align-items: center;   
+  gap: 40px;
+}
+
+.mystyle1, .st2, .v1 {
+  border-left: 5px solid green;
+  padding-left: 20px;
+  width: 250px;
+}
+
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+#root {
+  height: 100%;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;   
+  align-items: center;      
+  gap: 40px;
+}
+
+.mystyle1, .st2, .v1 {
+  border-left: 5px solid green;
+  padding-left: 20px;
+  width: 250px;
+  height: 400px;             
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+}
+
+h3  {
+  font-size: x-large;
+
+}
+
